@@ -3,18 +3,34 @@ function randomNumber(){
 }
 
 function startGame(){
-    return randomNumber()
+    model.data.randomNumber = randomNumber();
+    model.data.totalGuess = 0;
+    model.data.usedNumbers = [];
+
+    updateView();
 }
 
 //
 function guessNumber(number){
-    let randomNumber = randomNumber();
+    
+    model.data.totalGuess++;
 
-    if(guessNumber(number) === randomNumber){
+    model.data.usedNumbers.push(number);
+
+    if(Number(number) === model.data.randomNumber){
         model.data.totalCorrect++;
+
+        alert("Det er riktig nummer!");
+    }
+    else if(Number(number) < model.data.randomNumber){
+        alert("For Lavt!");
+    }
+    else{
+        alert("For høyt!");
     }
 
-    model.data.totalGuess++;
+    updateView();    
+
 }
 
 

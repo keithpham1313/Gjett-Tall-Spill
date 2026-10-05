@@ -4,5 +4,7 @@ const model = {
     data: {
         totalGuess: 0,
         totalCorrect: 0,
+        randomNumber: null,
+        usedNumbers: [],
     }
 }
